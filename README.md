@@ -1,6 +1,8 @@
-SCLoopScrollView
-A View Can Infinite Loop Scroll
-SCLoopScrollView can infinite loop scroll
+##SCLoopScrollView
+
+A View Can Infinite Loop Scroll.
+SCLoopScrollView can infinite loop scroll.
+-----------------
 You can use Storyboard or init by yourself.
 -----------------
 

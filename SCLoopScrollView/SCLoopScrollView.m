@@ -24,23 +24,13 @@ typedef void(^BLOCK)(NSInteger index);
 @implementation SCLoopScrollView
 {
     BOOL          _animation;
-    BLOCK         _block;
+    BLOCK         _scrollBlock;
+    BLOCK         _tapBlock;
     NSInteger     _oldIndex;
     
     UIScrollView *_scrollView;
     UIImageView  *_firstItem;
     UIImageView  *_lastItem;
-}
-
-#pragma mark - Init Methods
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self)
-    {
-        [self initConfig];
-    }
-    return self;
 }
 
 #pragma mark - layout Methods
@@ -72,8 +62,8 @@ typedef void(^BLOCK)(NSInteger index);
 #pragma mark - Setter And Getter Methods
 - (void)setIndex:(NSInteger)index
 {
-    if (index != _oldIndex)
-        _block(index);
+    if ((index != _oldIndex) && _scrollBlock)
+        _scrollBlock(index);
     _oldIndex = index;
 }
 
@@ -84,19 +74,23 @@ typedef void(^BLOCK)(NSInteger index);
 }
 
 #pragma mark - Public Methods
-- (void)begin:(void(^)(NSInteger index))finished
+- (void)begin:(void(^)(NSInteger index))tap
+     finished:(void(^)(NSInteger index))finished
 {
-    [self beginWithAutoScroll:NO animation:NO finished:finished];
+    [self beginWithAutoScroll:NO animation:NO tap:tap finished:finished];
 }
 
 - (void)beginWithAutoScroll:(BOOL)autoScroll
                   animation:(BOOL)animation
+                        tap:(void(^)(NSInteger index))tap
                    finished:(void(^)(NSInteger index))finished
 {
-    _block      = nil;
-    _autoScroll = autoScroll;
-    _animation  = animation;
-    _block      = finished;
+    _tapBlock    = nil;
+    _scrollBlock = nil;
+    _autoScroll  = autoScroll;
+    _animation   = animation;
+    _tapBlock    = tap;
+    _scrollBlock = finished;
     
     [self displayView];
 }
@@ -141,13 +135,12 @@ typedef void(^BLOCK)(NSInteger index);
 {
     if ([self canBeginLoad])
     {
-        [_scrollView setContentSize:CGSizeMake(SELF_WIDTH * (_items.count + 2), SELF_HEIGHT)];
+        [_scrollView setContentSize:CGSizeMake(SELF_WIDTH * (_items.count + 2), ZERO_POINT)];
         
         UIImage *lastImage                = ((UIImageView *)[_items lastObject]).image;
         _firstItem                        = [[UIImageView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _firstItem.tag                    = _items.count - 1;
         _firstItem.image                  = lastImage;
-        _firstItem.contentMode            = UIViewContentModeCenter;
         _firstItem.userInteractionEnabled = YES;
         [_firstItem addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)]];
         [_scrollView addSubview:_firstItem];
@@ -165,7 +158,6 @@ typedef void(^BLOCK)(NSInteger index);
         _lastItem                        = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH * (_items.count + 1), ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _lastItem.tag                    = ZERO;
         _lastItem.image                  = firstImage;
-        _lastItem.contentMode            = UIViewContentModeCenter;
         _lastItem.userInteractionEnabled = YES;
         [_lastItem addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer:)]];
         [_scrollView addSubview:_lastItem];
@@ -193,7 +185,8 @@ typedef void(^BLOCK)(NSInteger index);
 
 - (void)tapGestureRecognizer:(UITapGestureRecognizer *)tap
 {
-    _block(tap.view.tag);
+    if (_tapBlock)
+        _tapBlock(tap.view.tag);
 }
 
 #pragma mark - UISrollView Delegate Methods
@@ -207,7 +200,6 @@ typedef void(^BLOCK)(NSInteger index);
     {
         [scrollView setContentOffset:CGPointMake(MIN_BORDER, ZERO_POINT)];
     }
-    
     NSInteger index = (scrollView.contentOffset.x / SELF_WIDTH) - 1;
     self.index = [self getCurrentIndex:index];
 }

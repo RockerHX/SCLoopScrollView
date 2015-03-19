@@ -18,9 +18,12 @@
 
 @property (nonatomic, strong) NSArray   *items;
 
-- (void)begin:(void(^)(NSInteger index))finished;
+- (void)begin:(void(^)(NSInteger index))tap
+     finished:(void(^)(NSInteger index))finished;
+
 - (void)beginWithAutoScroll:(BOOL)autoScroll
                   animation:(BOOL)animation
+                        tap:(void(^)(NSInteger index))tap
                    finished:(void(^)(NSInteger index))finished;
 
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class SCLoopScrollView;
+
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet SCLoopScrollView *scrollView;
 
 @end
 

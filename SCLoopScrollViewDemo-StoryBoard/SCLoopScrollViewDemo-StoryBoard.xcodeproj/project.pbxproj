@@ -10,10 +10,11 @@
 		486956FA1ABB32FC009E99F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956F91ABB32FC009E99F5 /* main.m */; };
 		486956FD1ABB32FC009E99F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956FC1ABB32FC009E99F5 /* AppDelegate.m */; };
 		486957001ABB32FC009E99F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956FF1ABB32FC009E99F5 /* ViewController.m */; };
-		486957031ABB32FC009E99F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 486957011ABB32FC009E99F5 /* Main.storyboard */; };
-		486957051ABB32FC009E99F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 486957041ABB32FC009E99F5 /* Images.xcassets */; };
-		486957081ABB32FC009E99F5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 486957061ABB32FC009E99F5 /* LaunchScreen.xib */; };
 		486957141ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 486957131ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m */; };
+		48EA79C31ABB37F4000A57C6 /* SCLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 48EA79C21ABB37F4000A57C6 /* SCLoopScrollView.m */; };
+		48EA79CC1ABB47B7000A57C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79C91ABB47B7000A57C6 /* Images.xcassets */; };
+		48EA79D11ABB47CB000A57C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CD1ABB47CB000A57C6 /* LaunchScreen.xib */; };
+		48EA79D21ABB47CB000A57C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CF1ABB47CB000A57C6 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +35,14 @@
 		486956FC1ABB32FC009E99F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		486956FE1ABB32FC009E99F5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		486956FF1ABB32FC009E99F5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		486957021ABB32FC009E99F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		486957041ABB32FC009E99F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		486957071ABB32FC009E99F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4869570D1ABB32FC009E99F5 /* SCLoopScrollViewDemo-StoryBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SCLoopScrollViewDemo-StoryBoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486957121ABB32FC009E99F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486957131ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollViewDemo_StoryBoardTests.m; sourceTree = "<group>"; };
+		48EA79C11ABB37F4000A57C6 /* SCLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopScrollView.h; sourceTree = "<group>"; };
+		48EA79C21ABB37F4000A57C6 /* SCLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollView.m; sourceTree = "<group>"; };
+		48EA79C91ABB47B7000A57C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
+		48EA79CE1ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		48EA79D01ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +84,14 @@
 		486956F61ABB32FC009E99F5 /* SCLoopScrollViewDemo-StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				48EA79C01ABB37F4000A57C6 /* SCLoopScrollView */,
 				486956FB1ABB32FC009E99F5 /* AppDelegate.h */,
 				486956FC1ABB32FC009E99F5 /* AppDelegate.m */,
 				486956FE1ABB32FC009E99F5 /* ViewController.h */,
 				486956FF1ABB32FC009E99F5 /* ViewController.m */,
-				486957011ABB32FC009E99F5 /* Main.storyboard */,
-				486957041ABB32FC009E99F5 /* Images.xcassets */,
-				486957061ABB32FC009E99F5 /* LaunchScreen.xib */,
+				48EA79CD1ABB47CB000A57C6 /* LaunchScreen.xib */,
+				48EA79CF1ABB47CB000A57C6 /* Main.storyboard */,
+				48EA79C91ABB47B7000A57C6 /* Images.xcassets */,
 				486956F71ABB32FC009E99F5 /* Supporting Files */,
 			);
 			path = "SCLoopScrollViewDemo-StoryBoard";
@@ -117,6 +121,16 @@
 				486957121ABB32FC009E99F5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		48EA79C01ABB37F4000A57C6 /* SCLoopScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				48EA79C11ABB37F4000A57C6 /* SCLoopScrollView.h */,
+				48EA79C21ABB37F4000A57C6 /* SCLoopScrollView.m */,
+			);
+			name = SCLoopScrollView;
+			path = ../../SCLoopScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +213,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				486957031ABB32FC009E99F5 /* Main.storyboard in Resources */,
-				486957081ABB32FC009E99F5 /* LaunchScreen.xib in Resources */,
-				486957051ABB32FC009E99F5 /* Images.xcassets in Resources */,
+				48EA79D21ABB47CB000A57C6 /* Main.storyboard in Resources */,
+				48EA79D11ABB47CB000A57C6 /* LaunchScreen.xib in Resources */,
+				48EA79CC1ABB47B7000A57C6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +236,7 @@
 				486957001ABB32FC009E99F5 /* ViewController.m in Sources */,
 				486956FD1ABB32FC009E99F5 /* AppDelegate.m in Sources */,
 				486956FA1ABB32FC009E99F5 /* main.m in Sources */,
+				48EA79C31ABB37F4000A57C6 /* SCLoopScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,20 +259,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		486957011ABB32FC009E99F5 /* Main.storyboard */ = {
+		48EA79CD1ABB47CB000A57C6 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				486957021ABB32FC009E99F5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		486957061ABB32FC009E99F5 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				486957071ABB32FC009E99F5 /* Base */,
+				48EA79CE1ABB47CB000A57C6 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		48EA79CF1ABB47CB000A57C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				48EA79D01ABB47CB000A57C6 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

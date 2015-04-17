@@ -20,6 +20,9 @@
 
 #import "SCLoopScrollView.h"
 
+static NSString *const KVO_CONTEXT_FIRST_ITEM_CHANGED = @"KVO_CONTEXT_FIRST_ITEM_CHANGED";
+static NSString *const KVO_CONTEXT_LAST_ITEM_CHANGED  = @"KVO_CONTEXT_LAST_ITEM_CHANGED";
+
 typedef void(^BLOCK)(NSInteger index);
 
 @implementation SCLoopScrollView
@@ -38,6 +41,21 @@ typedef void(^BLOCK)(NSInteger index);
 - (void)layoutSubviews
 {
     [self viewConfig];
+}
+
+#pragma mark - Dealloc Methods
+- (void)dealloc
+{
+    [self clearSubviews];
+}
+
+#pragma mark - KOV Methods
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == (__bridge void *)(KVO_CONTEXT_LAST_ITEM_CHANGED))
+        _firstItem.image = change[NSKeyValueChangeNewKey];
+    else if (context == (__bridge void *)(KVO_CONTEXT_FIRST_ITEM_CHANGED))
+        _lastItem.image = change[NSKeyValueChangeNewKey];
 }
 
 #pragma mark - Config Methods
@@ -71,6 +89,9 @@ typedef void(^BLOCK)(NSInteger index);
 {
     [self clearSubviews];
     _items = items;
+    
+    [[items firstObject] addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:(__bridge void *)(KVO_CONTEXT_FIRST_ITEM_CHANGED)];
+    [[items lastObject] addObserver:self forKeyPath:@"image" options:NSKeyValueObservingOptionNew context:(__bridge void *)(KVO_CONTEXT_LAST_ITEM_CHANGED)];
 }
 
 #pragma mark - Public Methods
@@ -98,6 +119,9 @@ typedef void(^BLOCK)(NSInteger index);
 #pragma mark - Private Methods
 - (void)clearSubviews
 {
+    [[_items firstObject] removeObserver:self forKeyPath:@"image"];
+    [[_items lastObject] removeObserver:self forKeyPath:@"image"];
+    
     for (UIView *item in _items)
     {
         [item removeFromSuperview];

@@ -16,54 +16,59 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLoopScrollView"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "A View Can Infinite Loop Scroll."
 
   s.description  = <<-DESC
                    
                     ##SCLoopScrollView
 
-                    A View Can Infinite Loop Scroll.
-                    SCLoopScrollView can infinite loop scroll.
+					##无限循环滚动视图
 
-                    You can use Storyboard or init by yourself.
-                    -----------------
+					> 可以同时在代码和Xib以及Storyboard中使用。
 
-                    Init By Yourself
-                    ```{bash}
-                        NSMutableArray *subViews = [@[] mutableCopy];
-                        for (NSInteger index = 0; index < 3; index++)
-                        {
-                            UIImageView *view = [[UIImageView alloc] init];
-                            view.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", @(index)]];
-                            view.backgroundColor = [UIColor redColor];
-                            [subViews addObject:view];
-                        }
-                        
-                        SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 300.0f)];
-                        [self.view addSubview:scrollView];
-                        scrollView.items = subViews;
-                        [scrollView begin:^(NSInteger index) {
-                            NSLog(@"%@", @(index));
-                        } finished:nil];
-                    ```
+					> 只需要简单的设置一下图片源既可以，三行代码搞定无限循环广告视图。
 
-                    Init By Storyboard
-                    ```{bash}
-                        NSMutableArray *subViews = [@[] mutableCopy];
-                        for (NSInteger index = 0; index < 3; index++)
-                        {
-                            UIImageView *view = [[UIImageView alloc] init];
-                            view.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@", @(index)]];
-                            view.backgroundColor = [UIColor redColor];
-                            [subViews addObject:view];
-                        }
-                        
-                        _scrollView.items = subViews;
-                        [_scrollView begin:^(NSInteger index) {
-                            NSLog(@"%@", @(index));
-                        } finished:nil];
-                    ```
+					> 目前图片源支持图片链接和UIImage实例。
+
+					-----------------
+
+					Init By Yourself
+					```{bash}
+					    NSArray *images = @[@"http://e.hiphotos.baidu.com/image/w%3D310/sign=429b5adbbb014a90813e40bc99763971/622762d0f703918ffc60d8a3533d269759eec422.jpg",
+					                        [UIImage imageNamed:@"0"],
+					                        @"http://g.hiphotos.baidu.com/image/w%3D310/sign=9b62b9f379899e51788e3c1572a6d990/8718367adab44aed80ebd4eab11c8701a18bfb13.jpg",
+					                        [UIImage imageNamed:@"1"],
+					                        @"http://f.hiphotos.baidu.com/image/w%3D310/sign=544d5da6324e251fe2f7e2f99787c9c2/0824ab18972bd40720832c6179899e510eb309e1.jpg",
+					                        @"http://www.huabian.com/uploadfile/2014/1008/20141008103712898.jpg"];
+
+					    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 300.0f)];
+					    [self.view addSubview:scrollView];
+					    scrollView.images = images;
+					    [scrollView show:^(NSInteger index) {
+					        NSLog(@"%@", @(index));
+					    } finished:^(NSInteger index) {
+					        NSLog(@"%@", @(index));
+					    }];
+					```
+
+					Init By Storyboard
+					```{bash}
+					    NSArray *images = @[@"http://e.hiphotos.baidu.com/image/w%3D310/sign=429b5adbbb014a90813e40bc99763971/622762d0f703918ffc60d8a3533d269759eec422.jpg",
+					                        [UIImage imageNamed:@"0"],
+					                        @"http://g.hiphotos.baidu.com/image/w%3D310/sign=9b62b9f379899e51788e3c1572a6d990/8718367adab44aed80ebd4eab11c8701a18bfb13.jpg",
+					                        [UIImage imageNamed:@"1"],
+					                        @"http://f.hiphotos.baidu.com/image/w%3D310/sign=544d5da6324e251fe2f7e2f99787c9c2/0824ab18972bd40720832c6179899e510eb309e1.jpg",
+					                        @"http://www.huabian.com/uploadfile/2014/1008/20141008103712898.jpg"];
+
+					    _scrollView.images = images;
+					    [_scrollView show:^(NSInteger index) {
+					        NSLog(@"%@", @(index));
+					    } finished:^(NSInteger index) {
+					        NSLog(@"%@", @(index));
+					    }];
+					```
+
 
                    * Think: Why did you write this? What is the focus? What does it do?
                    * CocoaPods will be using this to generate tags, and improve search results.
@@ -121,7 +126,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.2" }
+  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.3" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -132,7 +137,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "SCLoopScrollView", "SCLoopScrollView/*.{h,m}"
+  s.source_files  = "SCLoopScrollView", "Class/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

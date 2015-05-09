@@ -30,9 +30,9 @@
     
     _scrollView.images = images;
     [_scrollView show:^(NSInteger index) {
-        NSLog(@"%@", @(index));
+        _tapLabel.text = @(index).stringValue;
     } finished:^(NSInteger index) {
-        NSLog(@"%@", @(index));
+        _indexLabel.text = @(index).stringValue;
     }];
 }
 

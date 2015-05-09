@@ -34,29 +34,54 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3Q-Bn-pQ0" customClass="SCLoopScrollView">
-                                <rect key="frame" x="0.0" y="84" width="320" height="400"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="444"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-d4-U5d">
+                                <rect key="frame" x="100" y="528" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IV-3B-4Oy">
+                                <rect key="frame" x="178" y="528" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="90t-GZ-2bA">
+                                <rect key="frame" x="150" y="528" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="XaA-3B-jd3"/>
+                                    <constraint firstAttribute="height" constant="20" id="FXe-PC-SKO"/>
+                                    <constraint firstAttribute="width" constant="20" id="Qbg-Ta-6Eg"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="z3Q-Bn-pQ0" secondAttribute="centerY" id="0kq-uY-mzG"/>
-                            <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="lb5-4l-AAa"/>
-                            <constraint firstAttribute="centerX" secondItem="z3Q-Bn-pQ0" secondAttribute="centerX" id="wJC-61-gum"/>
-                            <constraint firstAttribute="trailing" secondItem="z3Q-Bn-pQ0" secondAttribute="trailing" id="yHl-Ci-kzt"/>
+                            <constraint firstItem="90t-GZ-2bA" firstAttribute="top" secondItem="z3Q-Bn-pQ0" secondAttribute="bottom" constant="20" id="DXW-w9-hhx"/>
+                            <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="IMq-Q3-Uh9"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="90t-GZ-2bA" secondAttribute="bottom" constant="20" id="S6y-UV-V7s"/>
+                            <constraint firstItem="90t-GZ-2bA" firstAttribute="leading" secondItem="8Vd-d4-U5d" secondAttribute="trailing" constant="8" id="Vcq-vY-w4t"/>
+                            <constraint firstItem="90t-GZ-2bA" firstAttribute="centerY" secondItem="1IV-3B-4Oy" secondAttribute="centerY" id="gFm-J5-ug4"/>
+                            <constraint firstItem="1IV-3B-4Oy" firstAttribute="leading" secondItem="90t-GZ-2bA" secondAttribute="trailing" constant="8" id="lxu-vD-Zor"/>
+                            <constraint firstAttribute="trailing" secondItem="z3Q-Bn-pQ0" secondAttribute="trailing" id="mOV-5Z-Wl7"/>
+                            <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="x2x-S6-v4F"/>
+                            <constraint firstItem="8Vd-d4-U5d" firstAttribute="centerY" secondItem="90t-GZ-2bA" secondAttribute="centerY" id="zOv-UA-GUk"/>
+                            <constraint firstAttribute="centerX" secondItem="90t-GZ-2bA" secondAttribute="centerX" id="zbl-ID-YpL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="MxW-Qd-HIm"/>
                     <connections>
+                        <outlet property="indexLabel" destination="8Vd-d4-U5d" id="nbO-I4-PjG"/>
                         <outlet property="scrollView" destination="z3Q-Bn-pQ0" id="Ttv-H4-Y3c"/>
+                        <outlet property="tapLabel" destination="1IV-3B-4Oy" id="IVJ-QW-luh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423.46666666666664" y="366.36000000000001"/>
+            <point key="canvasLocation" x="455" y="366"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

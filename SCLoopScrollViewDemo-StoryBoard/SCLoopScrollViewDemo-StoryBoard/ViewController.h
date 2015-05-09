@@ -13,6 +13,8 @@
 @interface ViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet SCLoopScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet          UILabel *indexLabel;
+@property (weak, nonatomic) IBOutlet          UILabel *tapLabel;
 
 @end
 

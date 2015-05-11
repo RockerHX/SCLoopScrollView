@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLoopScrollView"
-  s.version      = "0.3"
+  s.version      = "0.4"
   s.summary      = "A View Can Infinite Loop Scroll."
 
   s.description  = <<-DESC
@@ -126,7 +126,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.3" }
+  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

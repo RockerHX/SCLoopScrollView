@@ -8,6 +8,8 @@
 
 > 目前图片源支持图片链接和UIImage实例。
 
+![](http://i1.tietuku.com/7db519b122670a90.gif)
+
 -----------------
 
 Init By Yourself

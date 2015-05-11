@@ -80,13 +80,16 @@ typedef void(^ItemBlock)(SCLoopItem *item);
 #pragma mark - Public Methods
 - (void)request:(void(^)(SCLoopItem *item))block
 {
+    _itemBlock = nil;
     _itemBlock = block;
     if ([_data isImageData])
     {
-        block(self);
-        return;
+        __weak typeof(self)weakSelf = self;
+        if (_itemBlock)
+            _itemBlock(weakSelf);
     }
-    [self loadImageWithUrl:_url];
+    else
+        [self loadImageWithUrl:_url];
 }
 
 #pragma mark - Private Methods

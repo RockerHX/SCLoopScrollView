@@ -81,22 +81,19 @@ typedef void(^BLOCK)(NSInteger index);
     if (!_firstImageView)
     {
         _firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
-        _firstImageView.backgroundColor = [UIColor redColor];
         [_scrollView addSubview:_firstImageView];
     }
     if (!_centerImageView)
     {
         _centerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
-        _centerImageView.backgroundColor = [UIColor greenColor];
         [_scrollView addSubview:_centerImageView];
     }
     if (!_lastImageView)
     {
         _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
-        _lastImageView.backgroundColor = [UIColor blueColor];
         [_scrollView addSubview:_lastImageView];
     }
-    [self refreshImage];
+    [self display];
 }
 
 #pragma mark - Setter And Getter Methods
@@ -130,9 +127,24 @@ typedef void(^BLOCK)(NSInteger index);
     _scrollBlock = finished;
     
     _scrollView.scrollEnabled = _images.count >> 1;
+    [self display];
 }
 
 #pragma mark - Private Methods
+- (void)display
+{
+    [self handelInitConfigImageView:_firstImageView];
+    [self handelInitConfigImageView:_centerImageView];
+    [self handelInitConfigImageView:_lastImageView];
+    [self refreshImage];
+}
+
+- (void)handelInitConfigImageView:(UIImageView *)imageView
+{
+    imageView.backgroundColor = _defaultImage ? [UIColor clearColor] : [UIColor lightGrayColor];
+    imageView.image = _defaultImage;
+}
+
 /**
  *  单击事件
  */
@@ -171,12 +183,15 @@ typedef void(^BLOCK)(NSInteger index);
 {
     [_manager.currentItem request:^(SCLoopItem *item) {
         _centerImageView.image = [UIImage imageWithData:item.data];
-        [item.preItem request:^(SCLoopItem *item) {
-            _firstImageView.image  = [UIImage imageWithData:item.data];
-        }];
-        [item.nextItem request:^(SCLoopItem *item) {
-            _lastImageView.image   = [UIImage imageWithData:item.data];
-        }];
+        if (_images.count > 1)
+        {
+            [item.preItem request:^(SCLoopItem *item) {
+                _firstImageView.image = [UIImage imageWithData:item.data];
+            }];
+            [item.nextItem request:^(SCLoopItem *item) {
+                _lastImageView.image = [UIImage imageWithData:item.data];
+            }];
+        }
     }];
     [self resetOffset];
 }

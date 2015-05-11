@@ -10,9 +10,10 @@
 
 @interface SCLoopScrollView : UIView <UIScrollViewDelegate>
 
-@property (nonatomic, assign, readonly)      BOOL  autoScroll;  // 是否处于自动轮播状态
-@property (nonatomic, assign, readonly) NSInteger  index;       // 当前所处位置索引
-@property (nonatomic, strong)             NSArray *images;      // 图片显示集合，可添加NSString和UIImage实例用于图片显示，NSString仅是可用的图片链接
+@property (nonatomic, assign, readonly)      BOOL  autoScroll;      // 是否处于自动轮播状态
+@property (nonatomic, assign, readonly) NSInteger  index;           // 当前所处位置索引
+@property (nonatomic, strong)             NSArray *images;          // 图片显示集合，可添加NSString和UIImage实例用于图片显示，NSString仅是可用的图片链接
+@property (nonatomic, strong)             UIImage *defaultImage;    // 默认图片，用于网络图片未加载完成时候的默认显示
 
 
 /**

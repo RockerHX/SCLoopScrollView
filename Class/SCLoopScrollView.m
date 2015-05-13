@@ -52,12 +52,6 @@ typedef void(^BLOCK)(NSInteger index);
     return self;
 }
 
-#pragma mark - layout Methods
-- (void)layoutSubviews
-{
-    [self viewConfig];
-}
-
 #pragma mark - Config Methods
 - (void)initConfig
 {
@@ -66,15 +60,17 @@ typedef void(^BLOCK)(NSInteger index);
 
 - (void)viewConfig
 {
+    [self layoutIfNeeded];
     // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
     if (!_scrollView)
     {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
+        _scrollView.scrollEnabled = _images.count >> 1;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, SELF_HEIGHT);
+        _scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, ZERO_POINT);
         [_scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer)]];
         [self addSubview:_scrollView];
     }
@@ -126,8 +122,7 @@ typedef void(^BLOCK)(NSInteger index);
     _tapBlock    = tap;
     _scrollBlock = finished;
     
-    _scrollView.scrollEnabled = _images.count >> 1;
-    [self display];
+    [self viewConfig];
 }
 
 #pragma mark - Private Methods

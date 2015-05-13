@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLoopScrollView"
-  s.version      = "0.4"
+  s.version      = "0.4.1"
   s.summary      = "A View Can Infinite Loop Scroll."
 
   s.description  = <<-DESC
@@ -30,6 +30,8 @@ Pod::Spec.new do |s|
 					> 只需要简单的设置一下图片源既可以，三行代码搞定无限循环广告视图。
 
 					> 目前图片源支持图片链接和UIImage实例。
+					
+					![](http://i1.tietuku.com/7db519b122670a90.gif)
 
 					-----------------
 
@@ -126,7 +128,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.4" }
+  s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => "0.4.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

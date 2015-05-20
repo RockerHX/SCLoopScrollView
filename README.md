@@ -12,6 +12,7 @@
 * 将`SCLoopScrollView/Classes`文件夹中的所有文件拽入项目中
 * 导入主头文件：`#import "SCLoopScrollView.h"`
 
+## 效果图
 ![](http://i1.tietuku.com/7db519b122670a90.gif)
 
 -----------------

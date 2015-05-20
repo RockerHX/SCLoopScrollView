@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		481B2F891AFE2E210077D0D3 /* SCLoopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 481B2F841AFE2E210077D0D3 /* SCLoopItem.m */; };
-		481B2F8A1AFE2E210077D0D3 /* SCLoopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 481B2F861AFE2E210077D0D3 /* SCLoopManager.m */; };
-		481B2F8B1AFE2E210077D0D3 /* SCLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 481B2F881AFE2E210077D0D3 /* SCLoopScrollView.m */; };
 		486956FA1ABB32FC009E99F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956F91ABB32FC009E99F5 /* main.m */; };
 		486956FD1ABB32FC009E99F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956FC1ABB32FC009E99F5 /* AppDelegate.m */; };
 		486957001ABB32FC009E99F5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 486956FF1ABB32FC009E99F5 /* ViewController.m */; };
 		486957141ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 486957131ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m */; };
+		487EEDC11B0C6CAA009D01BA /* SCLoopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 487EEDBC1B0C6CAA009D01BA /* SCLoopItem.m */; };
+		487EEDC21B0C6CAA009D01BA /* SCLoopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 487EEDBE1B0C6CAA009D01BA /* SCLoopManager.m */; };
+		487EEDC31B0C6CAA009D01BA /* SCLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 487EEDC01B0C6CAA009D01BA /* SCLoopScrollView.m */; };
 		48EA79CC1ABB47B7000A57C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79C91ABB47B7000A57C6 /* Images.xcassets */; };
 		48EA79D11ABB47CB000A57C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CD1ABB47CB000A57C6 /* LaunchScreen.xib */; };
 		48EA79D21ABB47CB000A57C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CF1ABB47CB000A57C6 /* Main.storyboard */; };
@@ -30,12 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		481B2F831AFE2E210077D0D3 /* SCLoopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopItem.h; sourceTree = "<group>"; };
-		481B2F841AFE2E210077D0D3 /* SCLoopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopItem.m; sourceTree = "<group>"; };
-		481B2F851AFE2E210077D0D3 /* SCLoopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopManager.h; sourceTree = "<group>"; };
-		481B2F861AFE2E210077D0D3 /* SCLoopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopManager.m; sourceTree = "<group>"; };
-		481B2F871AFE2E210077D0D3 /* SCLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopScrollView.h; sourceTree = "<group>"; };
-		481B2F881AFE2E210077D0D3 /* SCLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollView.m; sourceTree = "<group>"; };
 		486956F41ABB32FC009E99F5 /* SCLoopScrollViewDemo-StoryBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SCLoopScrollViewDemo-StoryBoard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486956F81ABB32FC009E99F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486956F91ABB32FC009E99F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,6 +40,12 @@
 		4869570D1ABB32FC009E99F5 /* SCLoopScrollViewDemo-StoryBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SCLoopScrollViewDemo-StoryBoardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		486957121ABB32FC009E99F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486957131ABB32FC009E99F5 /* SCLoopScrollViewDemo_StoryBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollViewDemo_StoryBoardTests.m; sourceTree = "<group>"; };
+		487EEDBB1B0C6CAA009D01BA /* SCLoopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopItem.h; sourceTree = "<group>"; };
+		487EEDBC1B0C6CAA009D01BA /* SCLoopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopItem.m; sourceTree = "<group>"; };
+		487EEDBD1B0C6CAA009D01BA /* SCLoopManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopManager.h; sourceTree = "<group>"; };
+		487EEDBE1B0C6CAA009D01BA /* SCLoopManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopManager.m; sourceTree = "<group>"; };
+		487EEDBF1B0C6CAA009D01BA /* SCLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLoopScrollView.h; sourceTree = "<group>"; };
+		487EEDC01B0C6CAA009D01BA /* SCLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollView.m; sourceTree = "<group>"; };
 		48EA79C91ABB47B7000A57C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
 		48EA79CE1ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		48EA79D01ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,23 +72,9 @@
 		481B2F721AFE2C5C0077D0D3 /* SCLoopScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				481B2F821AFE2E210077D0D3 /* Class */,
+				487EEDBA1B0C6CAA009D01BA /* Classes */,
 			);
 			name = SCLoopScrollView;
-			sourceTree = "<group>";
-		};
-		481B2F821AFE2E210077D0D3 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-				481B2F831AFE2E210077D0D3 /* SCLoopItem.h */,
-				481B2F841AFE2E210077D0D3 /* SCLoopItem.m */,
-				481B2F851AFE2E210077D0D3 /* SCLoopManager.h */,
-				481B2F861AFE2E210077D0D3 /* SCLoopManager.m */,
-				481B2F871AFE2E210077D0D3 /* SCLoopScrollView.h */,
-				481B2F881AFE2E210077D0D3 /* SCLoopScrollView.m */,
-			);
-			name = Class;
-			path = ../../Class;
 			sourceTree = "<group>";
 		};
 		486956EB1ABB32FC009E99F5 = {
@@ -149,6 +135,20 @@
 				486957121ABB32FC009E99F5 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		487EEDBA1B0C6CAA009D01BA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				487EEDBB1B0C6CAA009D01BA /* SCLoopItem.h */,
+				487EEDBC1B0C6CAA009D01BA /* SCLoopItem.m */,
+				487EEDBD1B0C6CAA009D01BA /* SCLoopManager.h */,
+				487EEDBE1B0C6CAA009D01BA /* SCLoopManager.m */,
+				487EEDBF1B0C6CAA009D01BA /* SCLoopScrollView.h */,
+				487EEDC01B0C6CAA009D01BA /* SCLoopScrollView.m */,
+			);
+			name = Classes;
+			path = ../../Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,12 +251,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				481B2F8A1AFE2E210077D0D3 /* SCLoopManager.m in Sources */,
+				487EEDC21B0C6CAA009D01BA /* SCLoopManager.m in Sources */,
 				486957001ABB32FC009E99F5 /* ViewController.m in Sources */,
 				486956FD1ABB32FC009E99F5 /* AppDelegate.m in Sources */,
-				481B2F891AFE2E210077D0D3 /* SCLoopItem.m in Sources */,
+				487EEDC11B0C6CAA009D01BA /* SCLoopItem.m in Sources */,
 				486956FA1ABB32FC009E99F5 /* main.m in Sources */,
-				481B2F8B1AFE2E210077D0D3 /* SCLoopScrollView.m in Sources */,
+				487EEDC31B0C6CAA009D01BA /* SCLoopScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

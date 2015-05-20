@@ -1,12 +1,16 @@
 ##SCLoopScrollView
+* A View Can Infinite Loop Scroll.
 
 ##无限循环滚动视图
+* 可以同时在代码和Xib以及Storyboard中使用。
+* 只需要简单的设置一下图片源既可以，三行代码搞定无限循环广告视图。
+* 目前图片源支持图片链接和UIImage实例。
 
-> 可以同时在代码和Xib以及Storyboard中使用。
-
-> 只需要简单的设置一下图片源既可以，三行代码搞定无限循环广告视图。
-
-> 目前图片源支持图片链接和UIImage实例。
+## 如何使用SCLoopScrollView
+* cocoapods导入：`pod 'SCLoopScrollView'`
+* 手动导入：
+* 将`SCLoopScrollView/Classes`文件夹中的所有文件拽入项目中
+* 导入主头文件：`#import "SCLoopScrollView.h"`
 
 ![](http://i1.tietuku.com/7db519b122670a90.gif)
 

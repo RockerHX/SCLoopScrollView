@@ -67,7 +67,6 @@ typedef void(^BLOCK)(NSInteger index);
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
-        _scrollView.scrollEnabled = _images.count >> 1;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, ZERO_POINT);
@@ -89,6 +88,7 @@ typedef void(^BLOCK)(NSInteger index);
         _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         [_scrollView addSubview:_lastImageView];
     }
+    _scrollView.scrollEnabled = _images.count >> 1;
     [self display];
 }
 

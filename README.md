@@ -106,4 +106,3 @@ _scrollView.images = images;
 }];
 ```
 
-

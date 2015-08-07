@@ -30,9 +30,9 @@ SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMak
 [self.view addSubview:scrollView];
 scrollView.images = images;
 [scrollView show:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Current Index:%@", @(index));
 } finished:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Tap Index:%@", @(index));
 }];
 ```
 
@@ -47,9 +47,9 @@ NSArray *images = @[@"http://e.hiphotos.baidu.com/image/w%3D310/sign=429b5adbbb0
 
 _scrollView.images = images;
 [_scrollView show:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Current Index:%@", @(index));
 } finished:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Tap Index:%@", @(index));
 }];
 ```
 
@@ -83,9 +83,9 @@ SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMak
 [self.view addSubview:scrollView];
 scrollView.images = images;
 [scrollView show:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Current Index:%@", @(index));
 } finished:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Tap Index:%@", @(index));
 }];
 ```
 
@@ -100,9 +100,9 @@ NSArray *images = @[@"http://e.hiphotos.baidu.com/image/w%3D310/sign=429b5adbbb0
 
 _scrollView.images = images;
 [_scrollView show:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Current Index:%@", @(index));
 } finished:^(NSInteger index) {
-    NSLog(@"%@", @(index));
+    NSLog(@"Tap Index:%@", @(index));
 }];
 ```
 

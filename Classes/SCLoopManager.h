@@ -23,4 +23,11 @@
  */
 - (void)moveRight;
 
+/**
+ *  设置能否循环滚动
+ *
+ *  @param loop 真假条件
+ */
+- (void)canLoop:(BOOL)loop;
+
 @end

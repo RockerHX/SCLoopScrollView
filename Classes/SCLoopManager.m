@@ -11,10 +11,8 @@
 @implementation SCLoopManager
 
 #pragma mark - Setter And Getter Methods
-- (void)setImages:(NSArray *)images
-{
-    if (images.count)
-    {
+- (void)setImages:(NSArray *)images {
+    if (images.count) {
         _images = images;
         _items = @[];
         [self generateItemsWithObjects:images];
@@ -22,14 +20,25 @@
 }
 
 #pragma mark - Public Methods
-- (void)moveLeft
-{
+- (void)moveLeft {
     _currentItem = _currentItem.preItem;
 }
 
 - (void)moveRight
 {
     _currentItem = _currentItem.nextItem;
+}
+
+- (void)canLoop:(BOOL)loop {
+    SCLoopItem *firstItem = _items.firstObject;
+    SCLoopItem *lastItem  = _items.lastObject;
+    if (loop) {
+        firstItem.preItem = lastItem;
+        lastItem.nextItem = firstItem;
+    } else {
+        firstItem.preItem = nil;
+        lastItem.nextItem = nil;
+    }
 }
 
 #pragma mark - Private Methods

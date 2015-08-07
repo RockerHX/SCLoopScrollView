@@ -18,11 +18,11 @@
 /**
  *  判断是否为一个可用字符串
  */
-- (BOOL)isValid
-{
+- (BOOL)isValid {
     BOOL valid = YES;
-    if (![self isKindOfClass:[NSString class]] || !self || [self isEqualToString:@""] || [[self pathExtension] isEqualToString:@""])
+    if (![self isKindOfClass:[NSString class]] || !self || [self isEqualToString:@""] || [[self pathExtension] isEqualToString:@""]) {
         valid = NO;
+    }
     return valid;
 }
 @end
@@ -37,8 +37,7 @@
 /**
  *  判断此二进制数据是否为图片数据
  */
-- (BOOL)isImageData
-{
+- (BOOL)isImageData {
     UIImage *image = [UIImage imageWithData:self];
     return [image isKindOfClass:[UIImage class]];
 }
@@ -49,28 +48,23 @@
 typedef void(^DataBlock)(NSData *data);
 typedef void(^ItemBlock)(SCLoopItem *item);
 
-@implementation SCLoopItem
-{
+@implementation SCLoopItem {
     ItemBlock _itemBlock;
 }
 
 #pragma mark - Init Methods
-- (instancetype)initWithUrl:(NSString *)url index:(NSInteger)index
-{
+- (instancetype)initWithUrl:(NSString *)url index:(NSInteger)index {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _url   = url;
         _index = index;
     }
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image index:(NSInteger)index
-{
+- (instancetype)initWithImage:(UIImage *)image index:(NSInteger)index {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         _data   = UIImagePNGRepresentation(image);
         _index = index;
     }
@@ -78,18 +72,17 @@ typedef void(^ItemBlock)(SCLoopItem *item);
 }
 
 #pragma mark - Public Methods
-- (void)request:(void(^)(SCLoopItem *item))block
-{
+- (void)request:(void(^)(SCLoopItem *item))block {
     _itemBlock = nil;
     _itemBlock = block;
-    if ([_data isImageData])
-    {
+    if ([_data isImageData]) {
         __weak typeof(self)weakSelf = self;
-        if (_itemBlock)
+        if (_itemBlock) {
             _itemBlock(weakSelf);
-    }
-    else
+        }
+    } else {
         [self loadImageWithUrl:_url];
+    }
 }
 
 #pragma mark - Private Methods
@@ -98,15 +91,14 @@ typedef void(^ItemBlock)(SCLoopItem *item);
  *
  *  @param url 图片链接
  */
-- (void)loadImageWithUrl:(NSString *)url
-{
-    if ([url isValid])
-    {
+- (void)loadImageWithUrl:(NSString *)url {
+    if ([url isValid]) {
         __weak typeof(self)weakSelf = self;
         [self getImageDataWithUrl:url block:^(NSData *data) {
             _data = data;
-            if (_itemBlock)
+            if (_itemBlock) {
                 _itemBlock(weakSelf);
+            }
         }];
     }
 }
@@ -117,10 +109,8 @@ typedef void(^ItemBlock)(SCLoopItem *item);
  *  @param url   图片链接
  *  @param block 请求成功后的回调
  */
-- (void)getImageDataWithUrl:(NSString *)url block:(DataBlock)block
-{
-    if (block)
-    {
+- (void)getImageDataWithUrl:(NSString *)url block:(DataBlock)block {
+    if (block) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]
                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -128,8 +118,7 @@ typedef void(^ItemBlock)(SCLoopItem *item);
             NSData *data = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:nil
                                                              error:nil];
-            if (data && [data isImageData])
-            {
+            if (data && [data isImageData]) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     block(data);
                 });

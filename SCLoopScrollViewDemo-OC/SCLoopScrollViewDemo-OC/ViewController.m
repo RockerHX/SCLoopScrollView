@@ -34,9 +34,9 @@
     [self.view addSubview:scrollView];
     scrollView.images = images;
     [scrollView show:^(NSInteger index) {
-        NSLog(@"%@", @(index));
+        NSLog(@"Current Index:%@", @(index));
     } finished:^(NSInteger index) {
-        NSLog(@"%@", @(index));
+        NSLog(@"Tap Index:%@", @(index));
     }];
 }
 

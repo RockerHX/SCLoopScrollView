@@ -29,7 +29,6 @@
                         @"http://www.huabian.com/uploadfile/2014/1008/20141008103712898.jpg"];
     
     _scrollView.images = images;
-    _scrollView.loopScroll = NO;
     [_scrollView show:^(NSInteger index) {
         _tapLabel.text = @(index).stringValue;
     } finished:^(NSInteger index) {

@@ -37,14 +37,8 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="444"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="index" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-d4-U5d">
-                                <rect key="frame" x="100" y="528" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IV-3B-4Oy">
-                                <rect key="frame" x="178" y="528" width="25" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Index:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-d4-U5d">
+                                <rect key="frame" x="15" y="527.5" width="109" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -57,16 +51,38 @@
                                     <constraint firstAttribute="width" constant="20" id="Qbg-Ta-6Eg"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-tF-fqQ">
+                                <rect key="frame" x="132" y="528.5" width="10" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JF-QX-FvY">
+                                <rect key="frame" x="265.5" y="527.5" width="10" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Index:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1IV-3B-4Oy">
+                                <rect key="frame" x="178" y="527.5" width="79.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="90t-GZ-2bA" firstAttribute="leading" secondItem="3wT-tF-fqQ" secondAttribute="trailing" constant="8" id="1iY-Yt-V3o"/>
                             <constraint firstItem="90t-GZ-2bA" firstAttribute="top" secondItem="z3Q-Bn-pQ0" secondAttribute="bottom" constant="20" id="DXW-w9-hhx"/>
                             <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="IMq-Q3-Uh9"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="90t-GZ-2bA" secondAttribute="bottom" constant="20" id="S6y-UV-V7s"/>
-                            <constraint firstItem="90t-GZ-2bA" firstAttribute="leading" secondItem="8Vd-d4-U5d" secondAttribute="trailing" constant="8" id="Vcq-vY-w4t"/>
+                            <constraint firstItem="1IV-3B-4Oy" firstAttribute="leading" secondItem="90t-GZ-2bA" secondAttribute="trailing" constant="8" id="WAF-2N-Tx5"/>
+                            <constraint firstItem="3wT-tF-fqQ" firstAttribute="centerY" secondItem="90t-GZ-2bA" secondAttribute="centerY" id="WTu-zU-soE"/>
+                            <constraint firstItem="1JF-QX-FvY" firstAttribute="leading" secondItem="1IV-3B-4Oy" secondAttribute="trailing" constant="8" id="eow-2f-AE1"/>
+                            <constraint firstItem="3wT-tF-fqQ" firstAttribute="leading" secondItem="8Vd-d4-U5d" secondAttribute="trailing" constant="8" id="fJ9-wp-TUL"/>
                             <constraint firstItem="90t-GZ-2bA" firstAttribute="centerY" secondItem="1IV-3B-4Oy" secondAttribute="centerY" id="gFm-J5-ug4"/>
-                            <constraint firstItem="1IV-3B-4Oy" firstAttribute="leading" secondItem="90t-GZ-2bA" secondAttribute="trailing" constant="8" id="lxu-vD-Zor"/>
                             <constraint firstAttribute="trailing" secondItem="z3Q-Bn-pQ0" secondAttribute="trailing" id="mOV-5Z-Wl7"/>
+                            <constraint firstItem="1JF-QX-FvY" firstAttribute="centerY" secondItem="90t-GZ-2bA" secondAttribute="centerY" id="ufS-ao-Gcs"/>
                             <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="x2x-S6-v4F"/>
                             <constraint firstItem="8Vd-d4-U5d" firstAttribute="centerY" secondItem="90t-GZ-2bA" secondAttribute="centerY" id="zOv-UA-GUk"/>
                             <constraint firstAttribute="centerX" secondItem="90t-GZ-2bA" secondAttribute="centerX" id="zbl-ID-YpL"/>
@@ -74,9 +90,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="SCLoopScrollView" id="MxW-Qd-HIm"/>
                     <connections>
-                        <outlet property="indexLabel" destination="8Vd-d4-U5d" id="nbO-I4-PjG"/>
+                        <outlet property="indexLabel" destination="3wT-tF-fqQ" id="osl-rf-c0d"/>
                         <outlet property="scrollView" destination="z3Q-Bn-pQ0" id="Ttv-H4-Y3c"/>
-                        <outlet property="tapLabel" destination="1IV-3B-4Oy" id="IVJ-QW-luh"/>
+                        <outlet property="tapLabel" destination="1JF-QX-FvY" id="UxV-YH-knP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

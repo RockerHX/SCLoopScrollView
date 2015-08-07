@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pth-St-964">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Pth-St-964">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="46.93333333333333" y="366.36000000000001"/>
         </scene>
-        <!--Demo-->
+        <!--SCLoopScrollView-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -72,7 +72,7 @@
                             <constraint firstAttribute="centerX" secondItem="90t-GZ-2bA" secondAttribute="centerX" id="zbl-ID-YpL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Demo" id="MxW-Qd-HIm"/>
+                    <navigationItem key="navigationItem" title="SCLoopScrollView" id="MxW-Qd-HIm"/>
                     <connections>
                         <outlet property="indexLabel" destination="8Vd-d4-U5d" id="nbO-I4-PjG"/>
                         <outlet property="scrollView" destination="z3Q-Bn-pQ0" id="Ttv-H4-Y3c"/>

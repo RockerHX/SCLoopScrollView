@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Demo";
+    self.title = @"SCLoopScrollView";
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

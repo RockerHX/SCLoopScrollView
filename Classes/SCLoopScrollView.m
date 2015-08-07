@@ -147,7 +147,7 @@ typedef void(^BLOCK)(NSInteger index);
 
 - (void)handelInitConfigImageView:(UIImageView *)imageView {
     if (imageView) {
-        imageView.backgroundColor = _defaultImage ? [UIColor clearColor] : [UIColor lightGrayColor];
+        imageView.backgroundColor = [UIColor clearColor];
         imageView.image = _defaultImage;
     }
 }

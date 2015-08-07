@@ -47,6 +47,13 @@ typedef void(^BLOCK)(NSInteger index);
     return self;
 }
 
+#pragma mark - Layout Methods
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    [self viewConfig];
+}
+
 #pragma mark - Config Methods
 - (void)initConfig {
     _loopScroll = YES;
@@ -54,39 +61,54 @@ typedef void(^BLOCK)(NSInteger index);
 }
 
 - (void)viewConfig {
-    [self layoutIfNeeded];
-    
     NSInteger imageCount = _images.count;
     // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _scrollView.delegate = self;
+        _scrollView.bounces = _bounces;
         _scrollView.pagingEnabled = YES;
-        _scrollView.scrollEnabled = imageCount >> 1;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, ZERO_POINT);
         [_scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer)]];
         [self addSubview:_scrollView];
     }
+    
     if (!_firstImageView && (imageCount > 1)) {
         _firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         [_scrollView addSubview:_firstImageView];
+    } else if (imageCount == 1) {
+        [_firstImageView removeFromSuperview];
+        _firstImageView = nil;
     }
+    
     if (!_centerImageView) {
-        _centerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(((imageCount > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
+        _centerImageView = [[UIImageView alloc] init];
         [_scrollView addSubview:_centerImageView];
     }
     if (!_lastImageView && (imageCount > 1)) {
         _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         [_scrollView addSubview:_lastImageView];
+    } else if (imageCount == 1) {
+        [_lastImageView removeFromSuperview];
+        _lastImageView = nil;
     }
+    
+    _centerImageView.frame = CGRectMake(((imageCount > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT, SELF_WIDTH, SELF_HEIGHT);
+    _scrollView.scrollEnabled = imageCount >> 1;
     [self display];
 }
 
 #pragma mark - Setter And Getter Methods
+- (void)setBounces:(BOOL)bounces {
+    _bounces = bounces;
+    _scrollView.bounces = bounces;
+}
+
 - (void)setLoopScroll:(BOOL)loopScroll {
     _loopScroll = loopScroll;
+    [self setBounces:loopScroll];
     [_manager canLoop:loopScroll];
 }
 
@@ -113,8 +135,6 @@ typedef void(^BLOCK)(NSInteger index);
     _autoScroll  = autoScroll;
     _tapBlock    = tap;
     _scrollBlock = finished;
-    
-    [self viewConfig];
 }
 
 #pragma mark - Private Methods
@@ -126,8 +146,10 @@ typedef void(^BLOCK)(NSInteger index);
 }
 
 - (void)handelInitConfigImageView:(UIImageView *)imageView {
-    imageView.backgroundColor = _defaultImage ? [UIColor clearColor] : [UIColor lightGrayColor];
-    imageView.image = _defaultImage;
+    if (imageView) {
+        imageView.backgroundColor = _defaultImage ? [UIColor clearColor] : [UIColor lightGrayColor];
+        imageView.image = _defaultImage;
+    }
 }
 
 /**
@@ -168,12 +190,21 @@ typedef void(^BLOCK)(NSInteger index);
     [_manager.currentItem request:^(SCLoopItem *item) {
         _centerImageView.image = [UIImage imageWithData:item.data];
         if (_images.count > 1) {
-            [item.preItem request:^(SCLoopItem *item) {
-                _firstImageView.image = [UIImage imageWithData:item.data];
-            }];
-            [item.nextItem request:^(SCLoopItem *item) {
-                _lastImageView.image = [UIImage imageWithData:item.data];
-            }];
+            if (item.preItem) {
+                [item.preItem request:^(SCLoopItem *item) {
+                    _firstImageView.image = [UIImage imageWithData:item.data];
+                }];
+            } else {
+                _firstImageView.image = nil;
+            }
+            
+            if (item.nextItem) {
+                [item.nextItem request:^(SCLoopItem *item) {
+                    _lastImageView.image = [UIImage imageWithData:item.data];
+                }];
+            } else {
+                _lastImageView.image = nil;
+            }
         }
     }];
     [self resetOffset];

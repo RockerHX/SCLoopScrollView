@@ -21,12 +21,16 @@
 
 #pragma mark - Public Methods
 - (void)moveLeft {
-    _currentItem = _currentItem.preItem;
+    if (_currentItem.preItem) {
+        _currentItem = _currentItem.preItem;
+    }
 }
 
 - (void)moveRight
 {
-    _currentItem = _currentItem.nextItem;
+    if (_currentItem.nextItem) {
+        _currentItem = _currentItem.nextItem;
+    }
 }
 
 - (void)canLoop:(BOOL)loop {

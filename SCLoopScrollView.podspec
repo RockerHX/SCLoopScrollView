@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLoopScrollView"
-  s.version      = "0.4.2"
+  s.version      = "0.5.0"
   s.summary      = "A View Can Infinite Loop Scroll."
 
   s.description  = <<-DESC
@@ -53,9 +53,9 @@ Pod::Spec.new do |s|
                           [self.view addSubview:scrollView];
                           scrollView.images = images;
                           [scrollView show:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Current Index:%@", @(index));
                           } finished:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Tap Index:%@", @(index));
                           }];
                           ```
 
@@ -70,9 +70,9 @@ Pod::Spec.new do |s|
 
                           _scrollView.images = images;
                           [_scrollView show:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Current Index:%@", @(index));
                           } finished:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Tap Index:%@", @(index));
                           }];
                           ```
 
@@ -106,9 +106,9 @@ Pod::Spec.new do |s|
                           [self.view addSubview:scrollView];
                           scrollView.images = images;
                           [scrollView show:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Current Index:%@", @(index));
                           } finished:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Tap Index:%@", @(index));
                           }];
                           ```
 
@@ -123,9 +123,9 @@ Pod::Spec.new do |s|
 
                           _scrollView.images = images;
                           [_scrollView show:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Current Index:%@", @(index));
                           } finished:^(NSInteger index) {
-                              NSLog(@"%@", @(index));
+                              NSLog(@"Tap Index:%@", @(index));
                           }];
                           ```
 

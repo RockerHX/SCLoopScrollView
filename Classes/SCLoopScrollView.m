@@ -56,7 +56,6 @@ typedef void(^BLOCK)(NSInteger index);
 
 #pragma mark - Config Methods
 - (void)initConfig {
-    _loopScroll = YES;
     _manager = [[SCLoopManager alloc] init];
 }
 
@@ -66,7 +65,6 @@ typedef void(^BLOCK)(NSInteger index);
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
         _scrollView.delegate = self;
-        _scrollView.bounces = _bounces;
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;

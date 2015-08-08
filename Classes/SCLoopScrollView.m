@@ -214,7 +214,7 @@ typedef void(^BLOCK)(NSInteger index);
  *  重设ScrollView偏移位置
  */
 - (void)resetOffset {
-    _scrollView.contentOffset = CGPointMake(SELF_WIDTH, ZERO_POINT);
+    _scrollView.contentOffset = CGPointMake(((_images.count > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT);
 }
 
 #pragma mark - UISrollView Delegate Methods

@@ -10,8 +10,6 @@
 
 @interface SCLoopScrollView : UIView <UIScrollViewDelegate>
 
-@property (nonatomic, assign)                BOOL  bounces;         // 滚动弹性
-@property (nonatomic, assign)                BOOL  loopScroll;      // 能否循环滚动（默认YES）
 @property (nonatomic, assign, readonly)      BOOL  autoScroll;      // 是否自动轮播状态
 @property (nonatomic, assign, readonly) NSInteger  index;           // 当前所处位置索引
 

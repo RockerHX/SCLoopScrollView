@@ -33,18 +33,6 @@
     }
 }
 
-- (void)canLoop:(BOOL)loop {
-    SCLoopItem *firstItem = _items.firstObject;
-    SCLoopItem *lastItem  = _items.lastObject;
-    if (loop) {
-        firstItem.preItem = lastItem;
-        lastItem.nextItem = firstItem;
-    } else {
-        firstItem.preItem = nil;
-        lastItem.nextItem = nil;
-    }
-}
-
 #pragma mark - Private Methods
 /**
  *  生成图片显示的数据结构对象

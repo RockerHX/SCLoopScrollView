@@ -101,17 +101,6 @@ typedef void(^BLOCK)(NSInteger index);
 }
 
 #pragma mark - Setter And Getter Methods
-- (void)setBounces:(BOOL)bounces {
-    _bounces = bounces;
-    _scrollView.bounces = bounces;
-}
-
-- (void)setLoopScroll:(BOOL)loopScroll {
-    _loopScroll = loopScroll;
-    [self setBounces:loopScroll];
-    [_manager canLoop:loopScroll];
-}
-
 - (NSInteger)index {
     return _manager.currentItem.index;
 }

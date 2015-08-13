@@ -47,23 +47,17 @@ typedef void(^BLOCK)(NSInteger index);
     return self;
 }
 
-#pragma mark - Layout Methods
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    [self viewConfig];
-}
-
 #pragma mark - Config Methods
 - (void)initConfig {
     _manager = [[SCLoopManager alloc] init];
 }
 
 - (void)viewConfig {
+    [self layoutIfNeeded];
     NSInteger imageCount = _images.count;
     // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
+        _scrollView = [[UIScrollView alloc] init];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
@@ -93,6 +87,7 @@ typedef void(^BLOCK)(NSInteger index);
         _lastImageView = nil;
     }
     
+    _scrollView.frame = CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT);
     _centerImageView.frame = CGRectMake(((imageCount > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT, SELF_WIDTH, SELF_HEIGHT);
     _scrollView.scrollEnabled = imageCount >> 1;
     [self display];
@@ -108,6 +103,7 @@ typedef void(^BLOCK)(NSInteger index);
         _images = images;
         _manager.images = images;
     }
+    [self viewConfig];
 }
 
 #pragma mark - Public Methods

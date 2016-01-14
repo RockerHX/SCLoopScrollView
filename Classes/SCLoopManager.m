@@ -12,6 +12,7 @@
 
 #pragma mark - Setter And Getter Methods
 - (void)setImages:(NSArray *)images {
+    _images = images;
     if (images.count) {
         _images = images;
         _items = @[];
@@ -26,8 +27,7 @@
     }
 }
 
-- (void)moveRight
-{
+- (void)moveRight {
     if (_currentItem.nextItem) {
         _currentItem = _currentItem.nextItem;
     }
@@ -39,19 +39,19 @@
  *
  *  @param objects 数据源集合
  */
-- (void)generateItemsWithObjects:(NSArray *)objects
-{
+- (void)generateItemsWithObjects:(NSArray *)objects {
     // 生成双向了链表结构
-    for (NSInteger index = 0; index < objects.count; index++)
-    {
-        id object = objects[index];
+    __weak __typeof__(self)weakSelf = self;
+    [objects enumerateObjectsUsingBlock:^(id  _Nonnull object, NSUInteger index, BOOL * _Nonnull stop) {
+        __strong __typeof__(self)strongSelf = weakSelf;
         SCLoopItem *item = nil;
-        if ([object isKindOfClass:[NSString class]])
+        if ([object isKindOfClass:[NSString class]]) {
             item = [[SCLoopItem alloc] initWithUrl:object index:index];
-        else if ([object isKindOfClass:[UIImage class]])
+        } else if ([object isKindOfClass:[UIImage class]]) {
             item = [[SCLoopItem alloc] initWithImage:object index:index];
-        [self pushItem:item];
-    }
+        }
+        [strongSelf pushItem:item];
+    }];
     // 链表结构首尾关联
     SCLoopItem *firstItem = _items.firstObject;
     SCLoopItem *lastItem  = _items.lastObject;
@@ -65,10 +65,8 @@
  *
  *  @param item 数据对象
  */
-- (void)pushItem:(SCLoopItem *)item
-{
-    if (item)
-    {
+- (void)pushItem:(SCLoopItem *)item {
+    if (item) {
         NSMutableArray *items = [_items mutableCopy];
         SCLoopItem *lastItem = items.lastObject;
         lastItem.nextItem = item;

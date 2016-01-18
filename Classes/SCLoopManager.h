@@ -16,11 +16,11 @@
 /**
  *  向左移动数据结构位置
  */
-- (void)moveLeft;
+- (void)swipeLeft;
 
 /**
  *  向右移动数据结构位置
  */
-- (void)moveRight;
+- (void)swipeRight;
 
 @end

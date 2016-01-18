@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SCLoopScrollView : UIView <UIScrollViewDelegate>
+@interface SCLoopScrollView : UIView
 
 @property (nonatomic, assign, readonly)      BOOL  autoScroll;      // 是否自动轮播状态
 @property (nonatomic, assign, readonly) NSInteger  index;           // 当前所处位置索引

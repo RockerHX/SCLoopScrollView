@@ -6,18 +6,16 @@
 //  Copyright (c) 2015年 ShiCang. All rights reserved.
 //
 
-#define ZERO_POINT          0.0f
-
-#define SELF_WIDTH          self.frame.size.width
-#define SELF_HEIGHT         self.frame.size.height
-
-#define MIN_BORDER          ZERO_POINT
-#define MAX_BORDER          SELF_WIDTH*2
-
 #import "SCLoopScrollView.h"
 #import "SCLoopManager.h"
+#import "SCConstants.h"
 
 typedef void(^BLOCK)(NSInteger index);
+
+@interface SCLoopScrollView () <
+UIScrollViewDelegate
+>
+@end
 
 @implementation SCLoopScrollView {
     BLOCK          _scrollBlock;

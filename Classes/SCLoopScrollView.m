@@ -32,7 +32,7 @@ UIScrollViewDelegate
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self initConfig];
+        [self initializeConfigure];
     }
     return self;
 }
@@ -40,17 +40,17 @@ UIScrollViewDelegate
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initConfig];
+        [self initializeConfigure];
     }
     return self;
 }
 
 #pragma mark - Config Methods
-- (void)initConfig {
+- (void)initializeConfigure {
     _manager = [[SCLoopManager alloc] init];
 }
 
-- (void)viewConfig {
+- (void)viewConfigure {
     [self layoutIfNeeded];
     NSInteger imageCount = _dataSource.count;
     // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
@@ -101,18 +101,15 @@ UIScrollViewDelegate
         _dataSource = dataSource;
         _manager.dataSource = dataSource;
     }
-    [self viewConfig];
+    [self viewConfigure];
 }
 
 #pragma mark - Public Methods
-- (void)show:(void(^)(NSInteger index))tap
-    finished:(void(^)(NSInteger index))finished {
+- (void)show:(void(^)(NSInteger index))tap finished:(void(^)(NSInteger index))finished {
     [self showWithAutoScroll:NO tap:tap finished:finished];
 }
 
-- (void)showWithAutoScroll:(BOOL)autoScroll
-                       tap:(void(^)(NSInteger index))tap
-                  finished:(void(^)(NSInteger index))finished {
+- (void)showWithAutoScroll:(BOOL)autoScroll tap:(void(^)(NSInteger))tap finished:(void(^)(NSInteger))finished {
     _autoScroll  = autoScroll;
     _tapBlock    = tap;
     _scrollBlock = finished;

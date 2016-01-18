@@ -11,12 +11,12 @@
 @implementation SCLoopManager
 
 #pragma mark - Setter And Getter Methods
-- (void)setImages:(NSArray *)images {
-    _images = images;
-    if (images.count) {
-        _images = images;
+- (void)setDataSource:(NSArray *)dataSource {
+    _dataSource = dataSource;
+    if (dataSource.count) {
+        _dataSource = dataSource;
         _items = @[];
-        [self generateItemsWithObjects:images];
+        [self generateItemsWithObjects:dataSource];
     }
 }
 

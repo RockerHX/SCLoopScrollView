@@ -9,7 +9,7 @@
 
 @interface SCLoopManager : NSObject
 
-@property (nonatomic, strong)              NSArray *images;         // 图片显示集合，可添加NSString和UIImage实例用于图片显示，NSString仅是可用的图片链接
+@property (nonatomic, strong)              NSArray *dataSource;     // 图片显示集合，可添加NSString，NSURL和UIImage实例用于图片显示，NSString仅是可用的图片链接链接
 @property (nonatomic, strong, readonly)    NSArray *items;          // 用于存储图片显示数据的集合
 @property (nonatomic, strong, readonly) SCLoopItem *currentItem;    // 呈现给用户的图片数据结构
 

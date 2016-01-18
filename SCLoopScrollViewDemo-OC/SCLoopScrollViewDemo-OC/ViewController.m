@@ -8,20 +8,17 @@
 
 #import "ViewController.h"
 #import "SCLoopScrollView.h"
+#import "SCConstants.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"SCLoopScrollView";
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
                         [UIImage imageNamed:@"0"],
@@ -29,7 +26,9 @@
                         [UIImage imageNamed:@"1"],
                         @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
     
-    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 300.0f)];
+    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
+    scrollView.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
+    scrollView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:scrollView];
     scrollView.dataSource = images;
     [scrollView show:^(NSInteger index) {

@@ -47,6 +47,7 @@
 		487EEDCA1B0C6CB2009D01BA /* SCLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollView.m; sourceTree = "<group>"; };
 		48EA79D41ABB47D3000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		48EA79D61ABB47DA000A57C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
+		CD4A0E731C4CE2EA005A8BA1 /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +138,7 @@
 		487EEDC41B0C6CB2009D01BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD4A0E721C4CE2EA005A8BA1 /* Mircos */,
 				487EEDC51B0C6CB2009D01BA /* SCLoopItem.h */,
 				487EEDC61B0C6CB2009D01BA /* SCLoopItem.m */,
 				487EEDC71B0C6CB2009D01BA /* SCLoopManager.h */,
@@ -146,6 +148,14 @@
 			);
 			name = Classes;
 			path = ../../Classes;
+			sourceTree = "<group>";
+		};
+		CD4A0E721C4CE2EA005A8BA1 /* Mircos */ = {
+			isa = PBXGroup;
+			children = (
+				CD4A0E731C4CE2EA005A8BA1 /* SCConstants.h */,
+			);
+			path = Mircos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,7 +202,7 @@
 		4869571E1ABB332E009E99F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "SCLoopScrollViewDemo-OC";
 				TargetAttributes = {
 					486957251ABB332E009E99F5 = {
@@ -306,6 +316,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -370,6 +381,7 @@
 				INFOPLIST_FILE = "SCLoopScrollViewDemo-OC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YJCL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -382,6 +394,7 @@
 				INFOPLIST_FILE = "SCLoopScrollViewDemo-OC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YJCL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -400,6 +413,7 @@
 				);
 				INFOPLIST_FILE = "SCLoopScrollViewDemo-OCTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YJCL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCLoopScrollViewDemo-OC.app/SCLoopScrollViewDemo-OC";
 			};
@@ -415,6 +429,7 @@
 				);
 				INFOPLIST_FILE = "SCLoopScrollViewDemo-OCTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.YJCL.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCLoopScrollViewDemo-OC.app/SCLoopScrollViewDemo-OC";
 			};

@@ -32,7 +32,7 @@
     
     SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, 300.0f)];
     [self.view addSubview:scrollView];
-    scrollView.images = images;
+    scrollView.dataSource = images;
     [scrollView show:^(NSInteger index) {
         NSLog(@"Current Index:%@", @(index));
     } finished:^(NSInteger index) {

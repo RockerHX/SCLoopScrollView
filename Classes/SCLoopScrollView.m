@@ -6,18 +6,16 @@
 //  Copyright (c) 2015年 ShiCang. All rights reserved.
 //
 
-#define ZERO_POINT          0.0f
-
-#define SELF_WIDTH          self.frame.size.width
-#define SELF_HEIGHT         self.frame.size.height
-
-#define MIN_BORDER          ZERO_POINT
-#define MAX_BORDER          SELF_WIDTH*2
-
 #import "SCLoopScrollView.h"
 #import "SCLoopManager.h"
+#import "SCConstants.h"
 
 typedef void(^BLOCK)(NSInteger index);
+
+@interface SCLoopScrollView () <
+UIScrollViewDelegate
+>
+@end
 
 @implementation SCLoopScrollView {
     BLOCK          _scrollBlock;
@@ -54,7 +52,7 @@ typedef void(^BLOCK)(NSInteger index);
 
 - (void)viewConfigure {
     [self layoutIfNeeded];
-    NSInteger imageCount = _images.count;
+    NSInteger imageCount = _dataSource.count;
     // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
@@ -98,10 +96,10 @@ typedef void(^BLOCK)(NSInteger index);
     return _manager.currentItem.index;
 }
 
-- (void)setImages:(NSArray *)images {
-    if (images.count) {
-        _images = images;
-        _manager.images = images;
+- (void)setDataSource:(NSArray *)dataSource {
+    if (dataSource.count) {
+        _dataSource = dataSource;
+        _manager.dataSource = dataSource;
     }
     [self viewConfigure];
 }
@@ -169,7 +167,7 @@ typedef void(^BLOCK)(NSInteger index);
 - (void)refreshImage {
     [_manager.currentItem request:^(SCLoopItem *item) {
         _centerImageView.image = [UIImage imageWithData:item.data];
-        if (_images.count > 1) {
+        if (_dataSource.count > 1) {
             if (item.preItem) {
                 [item.preItem request:^(SCLoopItem *item) {
                     _firstImageView.image = [UIImage imageWithData:item.data];
@@ -194,7 +192,7 @@ typedef void(^BLOCK)(NSInteger index);
  *  重设ScrollView偏移位置
  */
 - (void)resetOffset {
-    _scrollView.contentOffset = CGPointMake(((_images.count > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT);
+    _scrollView.contentOffset = CGPointMake(((_dataSource.count > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT);
 }
 
 #pragma mark - UISrollView Delegate Methods

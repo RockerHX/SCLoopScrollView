@@ -48,7 +48,6 @@
 		487EEDCA1B0C6CB2009D01BA /* SCLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLoopScrollView.m; sourceTree = "<group>"; };
 		48EA79D41ABB47D3000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		48EA79D61ABB47DA000A57C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
-		CD4A0E731C4CE2EA005A8BA1 /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
 		CD4A0E751C4CF07D005A8BA1 /* UIView+FindUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindUIViewController.h"; sourceTree = "<group>"; };
 		CD4A0E761C4CF07D005A8BA1 /* UIView+FindUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindUIViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				CD4A0E741C4CF056005A8BA1 /* Category */,
-				CD4A0E721C4CE2EA005A8BA1 /* Mircos */,
 				487EEDC51B0C6CB2009D01BA /* SCLoopItem.h */,
 				487EEDC61B0C6CB2009D01BA /* SCLoopItem.m */,
 				487EEDC71B0C6CB2009D01BA /* SCLoopManager.h */,
@@ -152,14 +150,6 @@
 			);
 			name = Classes;
 			path = ../../Classes;
-			sourceTree = "<group>";
-		};
-		CD4A0E721C4CE2EA005A8BA1 /* Mircos */ = {
-			isa = PBXGroup;
-			children = (
-				CD4A0E731C4CE2EA005A8BA1 /* SCConstants.h */,
-			);
-			path = Mircos;
 			sourceTree = "<group>";
 		};
 		CD4A0E741C4CF056005A8BA1 /* Category */ = {

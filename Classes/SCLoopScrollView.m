@@ -8,8 +8,10 @@
 
 #import "SCLoopScrollView.h"
 #import "SCLoopManager.h"
-#import "SCConstants.h"
 #import "UIView+FindUIViewController.h"
+
+#define SELF_WIDTH          self.frame.size.width
+#define SELF_HEIGHT         self.frame.size.height
 
 #define MIN_BORDER  0.0f
 #define MAX_BORDER  SELF_WIDTH*2

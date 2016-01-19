@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "SCLoopScrollView.h"
-#import "SCConstants.h"
 
 @interface ViewController ()
 @end
@@ -26,7 +25,7 @@
                         [UIImage imageNamed:@"4"],
                         @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
     
-    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
+    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
     scrollView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:scrollView];
     scrollView.dataSource = images;

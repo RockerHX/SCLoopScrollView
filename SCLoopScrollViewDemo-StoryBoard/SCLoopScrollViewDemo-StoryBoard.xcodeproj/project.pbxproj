@@ -36,7 +36,6 @@
 		48EA79C91ABB47B7000A57C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../Images.xcassets; sourceTree = "<group>"; };
 		48EA79CE1ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		48EA79D01ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CD4A0E711C4CE2BE005A8BA1 /* SCConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
 		CD66C0541C4DDC47004C06B1 /* UIView+FindUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindUIViewController.h"; sourceTree = "<group>"; };
 		CD66C0551C4DDC47004C06B1 /* UIView+FindUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindUIViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				CD66C0531C4DDC47004C06B1 /* Category */,
-				CD4A0E701C4CE2B0005A8BA1 /* Mircos */,
 				487EEDBB1B0C6CAA009D01BA /* SCLoopItem.h */,
 				487EEDBC1B0C6CAA009D01BA /* SCLoopItem.m */,
 				487EEDBD1B0C6CAA009D01BA /* SCLoopManager.h */,
@@ -115,14 +113,6 @@
 			);
 			name = Classes;
 			path = ../../Classes;
-			sourceTree = "<group>";
-		};
-		CD4A0E701C4CE2B0005A8BA1 /* Mircos */ = {
-			isa = PBXGroup;
-			children = (
-				CD4A0E711C4CE2BE005A8BA1 /* SCConstants.h */,
-			);
-			path = Mircos;
 			sourceTree = "<group>";
 		};
 		CD66C0531C4DDC47004C06B1 /* Category */ = {

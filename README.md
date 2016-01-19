@@ -20,41 +20,41 @@ Drag `SCLoopScrollViewDemo/Classes` folder into your project
 ## How To Use
 ### Init By Yourself
 ```objc
-    NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
-                        [UIImage imageNamed:@"3"],
-                        @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
-                        [UIImage imageNamed:@"4"],
-                        @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
-    
-    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
-    scrollView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:scrollView];
-    scrollView.dataSource = images;
-    [scrollView show:^(NSInteger index) {
-        NSLog(@"Tap Index:%@", @(index));
-    } scrolled:^(NSInteger index) {
-        NSLog(@"Current Index:%@", @(index));
-    }];
+NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+                    [UIImage imageNamed:@"3"],
+                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    [UIImage imageNamed:@"4"],
+                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+
+SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
+scrollView.backgroundColor = [UIColor lightGrayColor];
+[self.view addSubview:scrollView];
+scrollView.dataSource = images;
+[scrollView show:^(NSInteger index) {
+    NSLog(@"Tap Index:%@", @(index));
+} scrolled:^(NSInteger index) {
+    NSLog(@"Current Index:%@", @(index));
+}];
 ```
 
 ### Init By Storyboard
 ```objc
-    NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
-                        [UIImage imageNamed:@"3"],
-                        @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
-                        [UIImage imageNamed:@"4"],
-                        @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
-    
-    _scrollView.dataSource = images;
-    
-    __weak __typeof__(self)weakSelf = self;
-    [_scrollView show:^(NSInteger index) {
-        __strong __typeof__(self)strongSelf = weakSelf;
-        strongSelf.tapLabel.text = @(index).stringValue;
-    } scrolled:^(NSInteger index) {
-        __strong __typeof__(self)strongSelf = weakSelf;
-        strongSelf.indexLabel.text = @(index).stringValue;
-    }];
+NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+                    [UIImage imageNamed:@"3"],
+                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    [UIImage imageNamed:@"4"],
+                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+
+_scrollView.dataSource = images;
+
+__weak __typeof__(self)weakSelf = self;
+[_scrollView show:^(NSInteger index) {
+    __strong __typeof__(self)strongSelf = weakSelf;
+    strongSelf.tapLabel.text = @(index).stringValue;
+} scrolled:^(NSInteger index) {
+    __strong __typeof__(self)strongSelf = weakSelf;
+    strongSelf.indexLabel.text = @(index).stringValue;
+}];
 ```
 
 -----------------
@@ -76,40 +76,40 @@ Drag `SCLoopScrollViewDemo/Classes` folder into your project
 ## Code
 ### 手动编码
 ```objc
-    NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
-                        [UIImage imageNamed:@"3"],
-                        @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
-                        [UIImage imageNamed:@"4"],
-                        @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
-    
-    SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
-    scrollView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:scrollView];
-    scrollView.dataSource = images;
-    [scrollView show:^(NSInteger index) {
-        NSLog(@"Tap Index:%@", @(index));
-    } scrolled:^(NSInteger index) {
-        NSLog(@"Current Index:%@", @(index));
-    }];
+NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+                    [UIImage imageNamed:@"3"],
+                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    [UIImage imageNamed:@"4"],
+                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+
+SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
+scrollView.backgroundColor = [UIColor lightGrayColor];
+[self.view addSubview:scrollView];
+scrollView.dataSource = images;
+[scrollView show:^(NSInteger index) {
+    NSLog(@"Tap Index:%@", @(index));
+} scrolled:^(NSInteger index) {
+    NSLog(@"Current Index:%@", @(index));
+}];
 ```
 
 ### 通过故事板
 ```objc
-    NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
-                        [UIImage imageNamed:@"3"],
-                        @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
-                        [UIImage imageNamed:@"4"],
-                        @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
-    
-    _scrollView.dataSource = images;
-    
-    __weak __typeof__(self)weakSelf = self;
-    [_scrollView show:^(NSInteger index) {
-        __strong __typeof__(self)strongSelf = weakSelf;
-        strongSelf.tapLabel.text = @(index).stringValue;
-    } scrolled:^(NSInteger index) {
-        __strong __typeof__(self)strongSelf = weakSelf;
-        strongSelf.indexLabel.text = @(index).stringValue;
-    }];
+NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+                    [UIImage imageNamed:@"3"],
+                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    [UIImage imageNamed:@"4"],
+                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+
+_scrollView.dataSource = images;
+
+__weak __typeof__(self)weakSelf = self;
+[_scrollView show:^(NSInteger index) {
+    __strong __typeof__(self)strongSelf = weakSelf;
+    strongSelf.tapLabel.text = @(index).stringValue;
+} scrolled:^(NSInteger index) {
+    __strong __typeof__(self)strongSelf = weakSelf;
+    strongSelf.indexLabel.text = @(index).stringValue;
+}];
 ```
 

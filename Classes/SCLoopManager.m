@@ -21,13 +21,13 @@
 }
 
 #pragma mark - Public Methods
-- (void)moveLeft {
+- (void)swipeLeft {
     if (_currentItem.preItem) {
         _currentItem = _currentItem.preItem;
     }
 }
 
-- (void)moveRight {
+- (void)swipeRight {
     if (_currentItem.nextItem) {
         _currentItem = _currentItem.nextItem;
     }
@@ -72,7 +72,7 @@
         lastItem.nextItem = item;
         item.preItem = lastItem;
         [items addObject:item];
-        _items = items;
+        _items = [items copy];
     }
 }
 

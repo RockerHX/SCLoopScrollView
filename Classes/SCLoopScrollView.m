@@ -9,8 +9,12 @@
 #import "SCLoopScrollView.h"
 #import "SCLoopManager.h"
 #import "SCConstants.h"
+#import "UIView+FindUIViewController.h"
 
-typedef void(^BLOCK)(NSInteger index);
+#define MIN_BORDER  0.0f
+#define MAX_BORDER  SELF_WIDTH*2
+
+typedef void(^BLOCK)(NSInteger);
 
 @interface SCLoopScrollView () <
 UIScrollViewDelegate
@@ -18,8 +22,8 @@ UIScrollViewDelegate
 @end
 
 @implementation SCLoopScrollView {
-    BLOCK          _scrollBlock;
-    BLOCK          _tapBlock;
+    BLOCK _tapedBlock;
+    BLOCK _scrolledBlock;
     
     SCLoopManager *_manager;
     UIScrollView  *_scrollView;
@@ -29,10 +33,10 @@ UIScrollViewDelegate
 }
 
 #pragma mark - Init Methods
-- (id)initWithCoder:(NSCoder *)aDecoder {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self initializeConfigure];
+        [self initialize];
     }
     return self;
 }
@@ -40,55 +44,86 @@ UIScrollViewDelegate
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self initializeConfigure];
+        [self initialize];
     }
     return self;
 }
 
 #pragma mark - Config Methods
-- (void)initializeConfigure {
+- (void)initialize {
     _manager = [[SCLoopManager alloc] init];
 }
 
 - (void)viewConfigure {
     [self layoutIfNeeded];
-    NSInteger imageCount = _dataSource.count;
-    // 初始化并配置ScrollView以及其三个子视图ImageView，刷新三个ImageView并显示Image
+    NSInteger itemCount = _dataSource.count;
+    
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] init];
-        _scrollView.delegate = self;
-        _scrollView.pagingEnabled = YES;
-        _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, ZERO_POINT);
-        [_scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer)]];
-        [self addSubview:_scrollView];
+        [self scrollViewConfigure];
     }
     
-    if (!_firstImageView && (imageCount > 1)) {
-        _firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
+    if (!_firstImageView && itemCount) {
+        _firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SELF_WIDTH, SELF_HEIGHT)];
+        _firstImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _firstImageView.clipsToBounds = YES;
         [_scrollView addSubview:_firstImageView];
-    } else if (imageCount == 1) {
-        [_firstImageView removeFromSuperview];
-        _firstImageView = nil;
     }
-    
     if (!_centerImageView) {
         _centerImageView = [[UIImageView alloc] init];
+        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _centerImageView.clipsToBounds = YES;
         [_scrollView addSubview:_centerImageView];
     }
-    if (!_lastImageView && (imageCount > 1)) {
-        _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT)];
+    if (!_lastImageView && itemCount) {
+        _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, 0.0f, SELF_WIDTH, SELF_HEIGHT)];
+        _lastImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _lastImageView.clipsToBounds = YES;
         [_scrollView addSubview:_lastImageView];
-    } else if (imageCount == 1) {
+    }
+    
+    if (itemCount == 1) {
+        [_firstImageView removeFromSuperview];
+        _firstImageView = nil;
         [_lastImageView removeFromSuperview];
         _lastImageView = nil;
     }
     
-    _scrollView.frame = CGRectMake(ZERO_POINT, ZERO_POINT, SELF_WIDTH, SELF_HEIGHT);
-    _centerImageView.frame = CGRectMake(((imageCount > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT, SELF_WIDTH, SELF_HEIGHT);
-    _scrollView.scrollEnabled = imageCount >> 1;
+    _scrollView.frame = CGRectMake(0.0f, 0.0f, SELF_WIDTH, SELF_HEIGHT);
+    _centerImageView.frame = CGRectMake((itemCount ? SELF_WIDTH : 0.0f), 0.0f, SELF_WIDTH, SELF_HEIGHT);
+    _scrollView.scrollEnabled = itemCount >> 1;
     [self display];
+}
+
+- (void)scrollViewConfigure {
+    _scrollView = [self scrollViewInstance];
+    [self addSubview:_scrollView];
+    
+    [self configureFirstAvailableViewController];
+}
+
+- (void)configureFirstAvailableViewController {
+    UIViewController *viewController = [_scrollView firstAvailableUIViewController];
+    NSArray *subViews = viewController.view.subviews;
+    __block NSUInteger count = 0;
+    [subViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([view isKindOfClass:[UIScrollView class]]) {
+            count ++;
+        }
+    }];
+    if (!count) {
+        viewController.edgesForExtendedLayout -= 1;
+    }
+}
+
+- (UIScrollView *)scrollViewInstance {
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.delegate = self;
+    scrollView.pagingEnabled = YES;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.contentSize = CGSizeMake(SELF_WIDTH * 3, 0.0f);
+    [scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizer)]];
+    return scrollView;
 }
 
 #pragma mark - Setter And Getter Methods
@@ -105,14 +140,14 @@ UIScrollViewDelegate
 }
 
 #pragma mark - Public Methods
-- (void)show:(void(^)(NSInteger index))tap finished:(void(^)(NSInteger index))finished {
-    [self showWithAutoScroll:NO tap:tap finished:finished];
+- (void)show:(void(^)(NSInteger))taped scrolled:(void(^)(NSInteger))scrolled {
+    [self showWithAutoScroll:NO taped:taped scrolled:scrolled];
 }
 
-- (void)showWithAutoScroll:(BOOL)autoScroll tap:(void(^)(NSInteger))tap finished:(void(^)(NSInteger))finished {
-    _autoScroll  = autoScroll;
-    _tapBlock    = tap;
-    _scrollBlock = finished;
+- (void)showWithAutoScroll:(BOOL)autoScroll taped:(void(^)(NSInteger))taped scrolled:(void(^)(NSInteger))scrolled {
+    _autoScroll    = autoScroll;
+    _tapedBlock    = taped;
+    _scrolledBlock = scrolled;
 }
 
 #pragma mark - Private Methods
@@ -134,8 +169,8 @@ UIScrollViewDelegate
  *  单击事件
  */
 - (void)tapGestureRecognizer {
-    if (_tapBlock) {
-        _tapBlock(_manager.currentItem.index);
+    if (_tapedBlock) {
+        _tapedBlock(_manager.currentItem.index);
     }
 }
 
@@ -143,10 +178,10 @@ UIScrollViewDelegate
  *  左滑事件
  */
 - (void)swipeLeft {
-    [_manager moveRight];
+    [_manager swipeRight];
     [self refreshImage];
-    if (_scrollBlock) {
-        _scrollBlock(_manager.currentItem.index);
+    if (_scrolledBlock) {
+        _scrolledBlock(_manager.currentItem.index);
     }
 }
 
@@ -154,10 +189,10 @@ UIScrollViewDelegate
  *  右滑事件
  */
 - (void)swipeRight {
-    [_manager moveLeft];
+    [_manager swipeLeft];
     [self refreshImage];
-    if (_scrollBlock) {
-        _scrollBlock(_manager.currentItem.index);
+    if (_scrolledBlock) {
+        _scrolledBlock(_manager.currentItem.index);
     }
 }
 
@@ -192,7 +227,7 @@ UIScrollViewDelegate
  *  重设ScrollView偏移位置
  */
 - (void)resetOffset {
-    _scrollView.contentOffset = CGPointMake(((_dataSource.count > 1) ? SELF_WIDTH : ZERO_POINT), ZERO_POINT);
+    _scrollView.contentOffset = CGPointMake(((_dataSource.count > 1) ? SELF_WIDTH : 0.0f), 0.0f);
 }
 
 #pragma mark - UISrollView Delegate Methods

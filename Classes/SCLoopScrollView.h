@@ -23,8 +23,8 @@
  *  @param tap      点击事件的回调
  *  @param finished 滚动结束后的回调
  */
-- (void)show:(void(^)(NSInteger index))tap
-    finished:(void(^)(NSInteger index))finished;
+- (void)show:(void(^)(NSInteger index))taped
+    scrolled:(void(^)(NSInteger index))scrolled;
 
 /**
  *  展示循环滚动视图
@@ -34,7 +34,7 @@
  *  @param finished   滚动结束后的回调
  */
 - (void)showWithAutoScroll:(BOOL)autoScroll
-                       tap:(void(^)(NSInteger index))tap
-                  finished:(void(^)(NSInteger index))finished;
+                     taped:(void(^)(NSInteger index))taped
+                  scrolled:(void(^)(NSInteger index))scrolled;
 
 @end

@@ -31,9 +31,9 @@
     [self.view addSubview:scrollView];
     scrollView.dataSource = images;
     [scrollView show:^(NSInteger index) {
-        NSLog(@"Current Index:%@", @(index));
-    } scrolled:^(NSInteger index) {
         NSLog(@"Tap Index:%@", @(index));
+    } scrolled:^(NSInteger index) {
+        NSLog(@"Current Index:%@", @(index));
     }];
 }
 

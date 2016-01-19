@@ -25,10 +25,14 @@
                         @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
     
     _scrollView.dataSource = images;
+    
+    __weak __typeof__(self)weakSelf = self;
     [_scrollView show:^(NSInteger index) {
-        NSLog(@"Current Index:%@", @(index));
+        __strong __typeof__(self)strongSelf = weakSelf;
+        strongSelf.tapLabel.text = @(index).stringValue;
     } scrolled:^(NSInteger index) {
-        NSLog(@"Tap Index:%@", @(index));
+        __strong __typeof__(self)strongSelf = weakSelf;
+        strongSelf.indexLabel.text = @(index).stringValue;
     }];
 }
 

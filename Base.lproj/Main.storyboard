@@ -36,6 +36,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3Q-Bn-pQ0" customClass="SCLoopScrollView">
                                 <rect key="frame" x="0.0" y="64" width="320" height="444"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="444" id="jmU-Bh-9Lw"/>
+                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Index:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vd-d4-U5d">
                                 <rect key="frame" x="14" y="528" width="109" height="21"/>
@@ -73,7 +76,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="90t-GZ-2bA" firstAttribute="leading" secondItem="3wT-tF-fqQ" secondAttribute="trailing" constant="8" id="1iY-Yt-V3o"/>
-                            <constraint firstItem="90t-GZ-2bA" firstAttribute="top" secondItem="z3Q-Bn-pQ0" secondAttribute="bottom" constant="20" id="DXW-w9-hhx"/>
                             <constraint firstItem="z3Q-Bn-pQ0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="IMq-Q3-Uh9"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="90t-GZ-2bA" secondAttribute="bottom" constant="20" id="S6y-UV-V7s"/>
                             <constraint firstItem="1IV-3B-4Oy" firstAttribute="leading" secondItem="90t-GZ-2bA" secondAttribute="trailing" constant="8" id="WAF-2N-Tx5"/>

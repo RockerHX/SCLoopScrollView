@@ -64,17 +64,20 @@ UIScrollViewDelegate
     
     if (!_firstImageView && itemCount) {
         _firstImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SELF_WIDTH, SELF_HEIGHT)];
-        _firstImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _firstImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _firstImageView.clipsToBounds = YES;
         [_scrollView addSubview:_firstImageView];
     }
     if (!_centerImageView) {
         _centerImageView = [[UIImageView alloc] init];
-        _centerImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _centerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _centerImageView.clipsToBounds = YES;
         [_scrollView addSubview:_centerImageView];
     }
     if (!_lastImageView && itemCount) {
         _lastImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SELF_WIDTH*2, 0.0f, SELF_WIDTH, SELF_HEIGHT)];
-        _lastImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _lastImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _lastImageView.clipsToBounds = YES;
         [_scrollView addSubview:_lastImageView];
     }
     

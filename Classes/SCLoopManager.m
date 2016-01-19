@@ -72,7 +72,7 @@
         lastItem.nextItem = item;
         item.preItem = lastItem;
         [items addObject:item];
-        _items = items;
+        _items = [items copy];
     }
 }
 

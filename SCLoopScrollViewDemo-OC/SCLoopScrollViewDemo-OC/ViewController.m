@@ -21,13 +21,12 @@
     self.title = @"SCLoopScrollView";
     
     NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
-                        [UIImage imageNamed:@"0"],
+                        [UIImage imageNamed:@"3"],
                         @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
-                        [UIImage imageNamed:@"1"],
+                        [UIImage imageNamed:@"4"],
                         @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
     
     SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
-    scrollView.center = CGPointMake(SCREEN_WIDTH/2, SCREEN_HEIGHT/2);
     scrollView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:scrollView];
     scrollView.dataSource = images;

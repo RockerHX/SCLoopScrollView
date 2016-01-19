@@ -16,6 +16,7 @@
 		48EA79CC1ABB47B7000A57C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79C91ABB47B7000A57C6 /* Images.xcassets */; };
 		48EA79D11ABB47CB000A57C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CD1ABB47CB000A57C6 /* LaunchScreen.xib */; };
 		48EA79D21ABB47CB000A57C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48EA79CF1ABB47CB000A57C6 /* Main.storyboard */; };
+		CD66C0561C4DDC47004C06B1 /* UIView+FindUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD66C0551C4DDC47004C06B1 /* UIView+FindUIViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		48EA79CE1ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../../Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		48EA79D01ABB47CB000A57C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD4A0E711C4CE2BE005A8BA1 /* SCConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
+		CD66C0541C4DDC47004C06B1 /* UIView+FindUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FindUIViewController.h"; sourceTree = "<group>"; };
+		CD66C0551C4DDC47004C06B1 /* UIView+FindUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FindUIViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 		487EEDBA1B0C6CAA009D01BA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CD66C0531C4DDC47004C06B1 /* Category */,
 				CD4A0E701C4CE2B0005A8BA1 /* Mircos */,
 				487EEDBB1B0C6CAA009D01BA /* SCLoopItem.h */,
 				487EEDBC1B0C6CAA009D01BA /* SCLoopItem.m */,
@@ -119,6 +123,15 @@
 				CD4A0E711C4CE2BE005A8BA1 /* SCConstants.h */,
 			);
 			path = Mircos;
+			sourceTree = "<group>";
+		};
+		CD66C0531C4DDC47004C06B1 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CD66C0541C4DDC47004C06B1 /* UIView+FindUIViewController.h */,
+				CD66C0551C4DDC47004C06B1 /* UIView+FindUIViewController.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				487EEDC21B0C6CAA009D01BA /* SCLoopManager.m in Sources */,
+				CD66C0561C4DDC47004C06B1 /* UIView+FindUIViewController.m in Sources */,
 				486957001ABB32FC009E99F5 /* ViewController.m in Sources */,
 				486956FD1ABB32FC009E99F5 /* AppDelegate.m in Sources */,
 				487EEDC11B0C6CAA009D01BA /* SCLoopItem.m in Sources */,

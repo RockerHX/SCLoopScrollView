@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCLoopScrollView"
-  s.version      = "0.5.2"
+  s.version      = "0.6"
   s.summary      = "A View Can Infinite Loop Scroll."
   s.homepage     = "https://github.com/shicang1990/SCLoopScrollView"
   s.screenshots  = "http://i1.tietuku.com/7db519b122670a90.gif"

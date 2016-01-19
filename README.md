@@ -15,7 +15,7 @@ Drag `SCLoopScrollViewDemo/Classes` folder into your project
 >`#import "SCLoopScrollView.h"`
 
 ## Previews
-![](http://i1.tietuku.com/7db519b122670a90.gif)
+![](http://i4.tietuku.com/352fb883121adf69.gif)
 
 ## How To Use
 ### Init By Yourself
@@ -71,7 +71,7 @@ __weak __typeof__(self)weakSelf = self;
 * 导入主头文件：`#import "SCLoopScrollView.h"`
 
 ## 效果图
-![](http://i1.tietuku.com/7db519b122670a90.gif)
+![](http://i4.tietuku.com/352fb883121adf69.gif)
 
 ## Code
 ### 手动编码

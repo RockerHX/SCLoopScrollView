@@ -48,7 +48,7 @@ Pod::Spec.new do |s|
                                                   [UIImage imageNamed:@"4"],
                                                   @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
                               
-                              SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
+                              SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
                               scrollView.backgroundColor = [UIColor lightGrayColor];
                               [self.view addSubview:scrollView];
                               scrollView.dataSource = images;
@@ -104,7 +104,7 @@ Pod::Spec.new do |s|
                                                   [UIImage imageNamed:@"4"],
                                                   @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
                               
-                              SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, SCREEN_WIDTH, SCREEN_WIDTH*0.75)];
+                              SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
                               scrollView.backgroundColor = [UIColor lightGrayColor];
                               [self.view addSubview:scrollView];
                               scrollView.dataSource = images;
@@ -143,7 +143,7 @@ Pod::Spec.new do |s|
   s.author       = { "ShiCang" => "shicang1990@gmail.com" }
   s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/shicang1990/SCLoopScrollView.git", :tag => s.version }
-  s.source_files = "Classes/"
+  s.source_files = 'Classes/*.{h,m}'
   s.requires_arc = true
 
 end

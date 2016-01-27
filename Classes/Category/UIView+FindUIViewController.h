@@ -10,7 +10,7 @@
 
 @interface UIView (FindUIViewController)
 
-- (UIViewController *)firstAvailableUIViewController;
-- (id)traverseResponderChainForUIViewController;
+- (UIViewController *)firstAvailableViewController;
+- (instancetype)traverseResponderChainForViewController;
 
 @end

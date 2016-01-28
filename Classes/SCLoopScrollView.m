@@ -104,7 +104,7 @@ UIScrollViewDelegate
 }
 
 - (void)configureFirstAvailableViewController {
-    UIViewController *viewController = [_scrollView firstAvailableUIViewController];
+    UIViewController *viewController = [_scrollView firstAvailableViewController];
     NSArray *subViews = viewController.view.subviews;
     __block NSUInteger count = 0;
     [subViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {

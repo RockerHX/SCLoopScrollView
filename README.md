@@ -1,3 +1,6 @@
+[![Build Status]()
+[![CocoaPods Compatible]()]()
+
 ## SCLoopScrollView
 * A View Can Infinite Loop Scroll.
 

@@ -18,11 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+    NSArray *images = @[@"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/1.imageset/1%402x.png",
                         [UIImage imageNamed:@"3"],
-                        @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                        @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/2.imageset/2%402x.png",
                         [UIImage imageNamed:@"4"],
-                        @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+                        @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/5.imageset/5%402x.png"];
     
     _scrollView.dataSource = images;
     

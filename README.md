@@ -15,16 +15,16 @@ Drag `SCLoopScrollViewDemo/Classes` folder into your project
 >`#import "SCLoopScrollView.h"`
 
 ## Previews
-![](http://i4.tietuku.com/352fb883121adf69.gif)
+![](https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/ScreenShot/SCLoopScrollView.png)
 
 ## How To Use
 ### Init By Yourself
 ```objc
-NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+NSArray *images = @[@"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/1.imageset/1%402x.png",
                     [UIImage imageNamed:@"3"],
-                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/2.imageset/2%402x.png",
                     [UIImage imageNamed:@"4"],
-                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/5.imageset/5%402x.png"];
 
 SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
 scrollView.backgroundColor = [UIColor lightGrayColor];
@@ -39,11 +39,11 @@ scrollView.dataSource = images;
 
 ### Init By Storyboard
 ```objc
-NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+NSArray *images = @[@"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/1.imageset/1%402x.png",
                     [UIImage imageNamed:@"3"],
-                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/2.imageset/2%402x.png",
                     [UIImage imageNamed:@"4"],
-                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/5.imageset/5%402x.png"];
 
 _scrollView.dataSource = images;
 
@@ -71,16 +71,16 @@ __weak __typeof__(self)weakSelf = self;
 * 导入主头文件：`#import "SCLoopScrollView.h"`
 
 ## 效果图
-![](http://i4.tietuku.com/352fb883121adf69.gif)
+![](https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/ScreenShot/SCLoopScrollView.png)
 
 ## Code
 ### 手动编码
 ```objc
-NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+NSArray *images = @[@"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/1.imageset/1%402x.png",
                     [UIImage imageNamed:@"3"],
-                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/2.imageset/2%402x.png",
                     [UIImage imageNamed:@"4"],
-                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/5.imageset/5%402x.png"];
 
 SCLoopScrollView *scrollView = [[SCLoopScrollView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.view.frame.size.width, self.view.frame.size.width*0.75)];
 scrollView.backgroundColor = [UIColor lightGrayColor];
@@ -95,11 +95,11 @@ scrollView.dataSource = images;
 
 ### 通过故事板
 ```objc
-NSArray *images = @[@"http://i8.tietuku.com/a6542887e864efc0.jpg",
+NSArray *images = @[@"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/1.imageset/1%402x.png",
                     [UIImage imageNamed:@"3"],
-                    @"http://i8.tietuku.com/5730f7ebadae2c41.jpg",
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/2.imageset/2%402x.png",
                     [UIImage imageNamed:@"4"],
-                    @"http://i8.tietuku.com/149caebe062fc98c.jpg"];
+                    @"https://raw.githubusercontent.com/shicang1990/SCLoopScrollView/master/Images.xcassets/5.imageset/5%402x.png"];
 
 _scrollView.dataSource = images;
 
